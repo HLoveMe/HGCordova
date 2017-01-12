@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="hg-plugin-imageBox" version="0.01" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>HGImageBox</name>
+    <js-module name="HGImageBox" src="www/HGImageBox.js">
+        <clobbers target="ImageBox" />
+    </js-module>
+    <platform name="ios">
+    	<config-file target="config.xml" parent="/*">
+            <feature name="ImageBox">
+                <param name="ios-package" value="HGImageManager" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/HGImageManager.h"></header-file>
+        <source-file src="src/ios/HGImageManager.m"></source-file>
+    </platform>
+</plugin>

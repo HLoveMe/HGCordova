@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="hg-plugin-dataBase" version="0.01" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>dataManager</name>
+    <js-module name="dataManager" src="www/dataBase.js">
+        <clobbers target="DataManager" />
+    </js-module>
+
+    <js-module src="www/connect.js" name="Connect">
+        <clobbers target="ConnectArgs" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="dataManager">
+                <param name="ios-package" value="HGSQLManager" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/HGSQLManager.h" />
+        <source-file src="src/ios/HGSQLManager.m" />
+        <header-file src="src/ios/HGSQLConnection.h"></header-file>
+        <source-file src="src/ios/HGSQLConnection.m"></source-file>
+        <header-file src="src/ios/NSDictionary+dataManager.h"></header-file>
+        <source-file src="src/ios/NSDictionary+dataManager.m"></source-file>
+    </platform>
+</plugin>

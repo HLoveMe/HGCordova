@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="hg-plugin-share" version="0.01" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>ShareSDK</name>
+    <js-module src="www/ShareSDKConstants.js" name="ShareSDKArg">
+        <clobbers target="ShareSDKArg"/>
+    </js-module>
+    <js-module name="ShareSDK" src="www/ShareSDKBox.js">
+        <clobbers target="share.shareSDK" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ShareSDK">
+                <param name="ios-package" value="HGShareSDKBox" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/HGShareSDKBox.h" />
+        <source-file src="src/ios/HGShareSDKBox.m" />
+        <header-file src="src/ios/NSDictionary+Argument.h"></header-file>
+        <source-file src="src/ios/NSDictionary+Argument.m"></source-file>
+        <header-file src="src/ios/UIColor+NSString.h"></header-file>
+        <source-file src="src/ios/UIColor+NSString.m"></source-file>
+        <header-file src="src/ios/HGPlatform.h"></header-file>
+        <source-file src="src/ios/HGPlatform.m"></source-file>
+    </platform>
+</plugin>

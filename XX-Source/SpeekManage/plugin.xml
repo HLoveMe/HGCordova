@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="hg-plugin-speechManager" version="0.01" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>speechManager</name>
+    
+    <js-module name="SpeechArg" src="www/speechOpera.js">
+        <clobbers target="SpeechArg" />
+    </js-module>
+
+    <js-module name="speechManager" src="www/speech.js">
+        <clobbers target="speechManager" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="speechManager">
+                <param name="ios-package" value="HGSpeechManage" />
+            </feature>
+        </config-file>
+        
+        <framework src="AVFoundation.framework" />
+        <framework src="Speech.framework" />
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>请求录音权限</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSSpeechRecognitionUsageDescription">
+            <string>siri语音转换</string>
+        </config-file>
+        <header-file src="src/ios/HGSpeechManage.h" />
+        <source-file src="src/ios/HGSpeechManage.m" />
+      
+    </platform>
+</plugin>
